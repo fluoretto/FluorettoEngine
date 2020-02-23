@@ -13,11 +13,11 @@ namespace FluorettoEngine
         public SpriteBatch Batch { get; }
         public ScaledDrawer ScaledDrawer { get; }
 
-        public DrawContext(GameTime time, SpriteBatch spriteBatch, float scale)
+        public DrawContext(GameTime time, SpriteBatch spriteBatch, float scale, float naturalAssetScale)
         {
             Time = time;
             Batch = spriteBatch;
-            ScaledDrawer = new ScaledDrawer(scale, Batch);
+            ScaledDrawer = new ScaledDrawer(scale, naturalAssetScale, Batch);
         }
     }
 }

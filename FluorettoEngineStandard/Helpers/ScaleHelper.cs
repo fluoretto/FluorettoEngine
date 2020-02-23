@@ -60,5 +60,27 @@ namespace FluorettoEngine.Helpers
                 return 0;
             }
         }
+
+        /// <summary>
+        /// Retorna a escala apropriada em 1, 2, 3, 4, 8 ou 16
+        /// </summary>
+        /// <returns></returns>
+        public int GetAppropriateScale()
+        {
+            int roundScale = (int)Math.Ceiling((double)Scale);
+
+            if (roundScale <= 4)
+            {
+                return roundScale;
+            }
+            else if (roundScale <= 8)
+            {
+                return 8;
+            }
+            else
+            {
+                return 16;
+            }
+        }
     }
 }

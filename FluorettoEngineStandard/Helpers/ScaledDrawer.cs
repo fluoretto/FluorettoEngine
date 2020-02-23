@@ -10,15 +10,17 @@ namespace FluorettoEngine.Helpers
     public class ScaledDrawer
     {
         public float Scale { get; private set; }
+        public float AssetNaturalScale { get; private set; }
 
         Vector2 scaleVector;
 
         SpriteBatch batch;
 
-        public ScaledDrawer(float scale, SpriteBatch batch)
+        public ScaledDrawer(float scale, float assetNaturalScale, SpriteBatch batch)
         {
             Scale = scale;
-            scaleVector = new Vector2(scale, scale);
+            AssetNaturalScale = assetNaturalScale;
+            scaleVector = new Vector2(scale / assetNaturalScale, scale / assetNaturalScale);
 
             this.batch = batch;
         }
@@ -46,7 +48,7 @@ namespace FluorettoEngine.Helpers
                 Color.White,
                 0f,
                 Vector2.Zero,
-                Vector2.Multiply(scaleMultiplier, Scale),
+                Vector2.Multiply(scaleMultiplier, Scale / AssetNaturalScale),
                 SpriteEffects.None,
                 0);
         }
